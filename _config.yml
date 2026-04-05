@@ -17,7 +17,7 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Author
 author:
   name: Charles
-  avatar: /assets/images/bio-photo.jpg # 头像图片路径，可以后续添加
+  avatar: /assets/images/bio-photo.svg # 头像图片路径，可以后续替换
   bio: "技术博客 | 记录学习与成长"
   location: "中国"
   email: quhaibing206@163.com

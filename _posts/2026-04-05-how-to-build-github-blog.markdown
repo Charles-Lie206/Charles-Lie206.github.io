@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: single
 title: "从零开始：使用 GitHub Pages + Jekyll 搭建个人博客"
 date: 2026-04-05 10:00:00 +0800
 categories: 技术
 tags: [GitHub, Jekyll, 博客, 教程]
+read_time: true
 ---
 
 ## 前言
