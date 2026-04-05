@@ -14,6 +14,11 @@ gem "jekyll", "~> 4.4.1"
 # Minimal Mistakes theme
 gem "minimal-mistakes-jekyll", "~> 4.24.0"
 
+# Additional gems for Minimal Mistakes
+gem "jekyll-paginate"
+gem "jekyll-sitemap"
+gem "jekyll-gist"
+
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
@@ -21,6 +26,7 @@ gem "minimal-mistakes-jekyll", "~> 4.24.0"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-include-cache", "~> 0.2.1"
+  gem "jemoji"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
