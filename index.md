@@ -5,8 +5,7 @@ permalink: /
 author_profile: true
 header:
   overlay_color: "#4a90e2"
-  overlay_image: /assets/images/placeholder-simple.svg
-  caption: "技术博客 | 记录学习与成长"
+  overlay_image: /assets/images/banner-no-text.svg
 ---
 
 欢迎来到我的个人博客！👋
