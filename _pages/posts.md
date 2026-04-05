@@ -4,8 +4,8 @@ layout: archive
 permalink: /posts/
 author_profile: true
 header:
-  overlay_color: "#2c3e50"
-  overlay_image: /assets/images/placeholder.svg
+  overlay_color: "#4a90e2"
+  overlay_image: /assets/images/banner-no-text.svg
 ---
 
 ## 📚 所有文章
