@@ -15,7 +15,6 @@ header:
 
 ## 📝 最新文章
 
-{% include base_path %}
 {% for post in site.posts limit:5 %}
   {% include archive-single.html %}
 {% endfor %}

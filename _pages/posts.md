@@ -10,7 +10,6 @@ header:
 
 ## 📚 所有文章
 
-{% include base_path %}
 {% for post in site.posts %}
   {% include archive-single.html %}
 {% endfor %}

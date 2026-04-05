@@ -157,7 +157,6 @@ DEPENDENCIES
   jekyll-feed (~> 0.12)
   jekyll-gist
   jekyll-include-cache (~> 0.2.1)
-  jekyll-paginate
   jekyll-sitemap
   jemoji
   minimal-mistakes-jekyll (~> 4.24.0)
