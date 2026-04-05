@@ -4,8 +4,8 @@ title: "首页"
 permalink: /
 author_profile: true
 header:
-  overlay_color: "#2c3e50"
-  overlay_image: /assets/images/placeholder.svg
+  overlay_color: "#4a90e2"
+  overlay_image: /assets/images/placeholder-simple.svg
   caption: "技术博客 | 记录学习与成长"
 ---
 
