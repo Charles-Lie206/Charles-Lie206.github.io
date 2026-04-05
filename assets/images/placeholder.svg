@@ -1,5 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
-  <rect width="1200" height="400" fill="#2c3e50"/>
-  <text x="600" y="200" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle" font-weight="bold">Charles 的技术博客</text>
-  <text x="600" y="260" font-family="Arial, sans-serif" font-size="24" fill="#ecf0f1" text-anchor="middle">记录学习 · 分享经验 · 持续成长</text>
+  <defs>
+    <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2980;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#26d0ce;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bannerGrad)"/>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="60" fill="white" text-anchor="middle" font-weight="bold" filter="url(#glow)">Charles 的技术博客</text>
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="28" fill="#e0f7fa" text-anchor="middle" letter-spacing="3">记录学习 · 分享经验 · 持续成长</text>
+  <circle cx="200" cy="320" r="5" fill="white" opacity="0.6"/>
+  <circle cx="300" cy="340" r="3" fill="white" opacity="0.4"/>
+  <circle cx="900" cy="330" r="4" fill="white" opacity="0.5"/>
+  <circle cx="1000" cy="350" r="6" fill="white" opacity="0.3"/>
 </svg>

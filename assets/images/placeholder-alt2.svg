@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <linearGradient id="bannerGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#302b63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#24243e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bannerGrad3)"/>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="60" fill="#00d2ff" text-anchor="middle" font-weight="bold">Charles 的技术博客</text>
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="28" fill="#a8e6cf" text-anchor="middle" letter-spacing="3">记录学习 · 分享经验 · 持续成长</text>
+  <rect x="500" y="280" width="200" height="3" fill="#00d2ff" rx="1.5"/>
+</svg>
