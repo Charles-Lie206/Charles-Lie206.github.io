@@ -1,8 +1,8 @@
 ---
-layout: archive
+layout: single
 title: "Home"
 permalink: /
-author_profile: true
+author_profile: false
 header:
   overlay_color: "#4a90e2"
   overlay_image: /assets/images/banner-no-text.svg
@@ -10,7 +10,7 @@ header:
 
 Welcome to my personal blog! 👋
 
-This is my space for recording my technology learning and life.
+Hi, I'm **Charles** — a tech enthusiast sharing knowledge and insights about programming, networking, and system administration. This is my space for documenting my learning journey and helping others along the way.
 
 ## 📝 Latest Posts
 

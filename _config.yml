@@ -17,8 +17,8 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Author
 author:
   name: Charles
-  avatar: /assets/images/bio-photo.svg # Avatar image path, can be replaced later
-  bio: "Tech Blog | Recording Learning and Growth"
+  avatar: /assets/images/bio-photo.svg
+  bio: "A tech enthusiast sharing knowledge and insights.
   location: "China"
   email: quhaibing206@163.com
   links:
