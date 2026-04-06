@@ -8,22 +8,10 @@ header:
   overlay_image: /assets/images/banner-no-text.svg
 ---
 
-{% comment %}Collect all unique categories{% endcomment %}
-{% assign unique_categories = '' | split: '' %}
-{% for post in site.posts %}
-  {% for category in post.categories %}
-    {% unless unique_categories contains category %}
-      {% assign unique_categories = unique_categories | push: category %}
-    {% endunless %}
-  {% endfor %}
-{% endfor %}
-
-{% comment %}Display posts for each category{% endcomment %}
-{% for category in unique_categories %}
-  <h3 id="{{ category | slugify }}" class="archive__subtitle">{{ category }}</h3>
-  {% for post in site.posts %}
-    {% if post.categories contains category %}
-      {% include archive-single.html type="grid" %}
-    {% endif %}
+{% for category in site.categories %}
+  {% assign category_name = category[0] %}
+  <h3 id="{{ category_name | slugify }}" class="archive__subtitle">{{ category_name }}</h3>
+  {% for post in category[1] %}
+    {% include archive-single.html type="grid" %}
   {% endfor %}
 {% endfor %}
