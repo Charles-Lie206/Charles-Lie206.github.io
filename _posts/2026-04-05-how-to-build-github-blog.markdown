@@ -1,207 +1,207 @@
 ---
 layout: single
-title: "从零开始：使用 GitHub Pages + Jekyll 搭建个人博客"
+title: "From Scratch: Building a Personal Blog with GitHub Pages + Jekyll"
 date: 2026-04-05 10:00:00 +0800
-categories: 技术
-tags: [GitHub, Jekyll, 博客, 教程]
+categories: Technology
+tags: [GitHub, Jekyll, Blog, Tutorial]
 read_time: true
 ---
 
-## 前言
+## Introduction
 
-最近想搭建一个个人技术博客，记录学习心得和项目经验。经过一番调研，最终选择了 **GitHub Pages + Jekyll** 方案。这个组合完全免费、部署简单、适合静态内容，而且 GitHub 官方支持，社区生态完善。本文将详细记录整个搭建过程，希望能帮助到同样想搭建博客的朋友。
+Recently, I wanted to set up a personal technical blog to record my learning insights and project experiences. After some research, I finally chose the **GitHub Pages + Jekyll** solution. This combination is completely free, easy to deploy, suitable for static content, and has official GitHub support with a well-developed community ecosystem. This article will document the entire setup process in detail, hoping to help friends who also want to build a blog.
 
-## 为什么选择 GitHub Pages + Jekyll？
+## Why Choose GitHub Pages + Jekyll?
 
-### GitHub Pages 的优势
+### Advantages of GitHub Pages
 
-- **完全免费**：GitHub 提供的静态网站托管服务，无需购买服务器
-- **自动部署**：通过 Git 提交代码，自动触发构建和部署
-- **HTTPS 支持**：自动配置 SSL 证书，保证访问安全
-- **自定义域名**：支持绑定自己的域名
-- **版本控制**：所有内容都在 Git 仓库中，方便管理历史
+- **Completely Free**: Static site hosting service provided by GitHub, no need to purchase servers
+- **Automatic Deployment**: Automatically trigger build and deployment by committing code via Git
+- **HTTPS Support**: Automatically configure SSL certificates to ensure secure access
+- **Custom Domain**: Support binding your own domain name
+- **Version Control**: All content is in a Git repository, making it easy to manage history
 
-### Jekyll 的特点
+### Features of Jekyll
 
-- **静态网站生成器**：将 Markdown 文件转换为静态 HTML
-- **Ruby 生态**：丰富的主题和插件
-- **零配置**：GitHub Pages 原生支持，无需额外配置
-- **专注写作**：用 Markdown 写文章，不需要关心前端细节
+- **Static Site Generator**: Converts Markdown files to static HTML
+- **Ruby Ecosystem**: Rich themes and plugins
+- **Zero Configuration**: Native support from GitHub Pages, no additional configuration needed
+- **Focus on Writing**: Write articles in Markdown without worrying about frontend details
 
-## 准备工作
+## Prerequisites
 
-在开始之前，你需要准备：
+Before starting, you need to prepare:
 
-1. 一个 [GitHub](https://github.com) 账号
-2. 本地安装 [Git](https://git-scm.com/)
-3. 基本的命令行操作能力
+1. A [GitHub](https://github.com) account
+2. [Git](https://git-scm.com/) installed locally
+3. Basic command-line operation skills
 
-## 第一步：配置 Git
+## Step 1: Configure Git
 
-首先配置 Git 的用户信息：
+First, configure Git user information:
 
 ```bash
-git config --global user.name "你的用户名"
+git config --global user.name "your-username"
 git config --global user.email "your-email@example.com"
 ```
 
-**注意**：这里的邮箱建议使用 GitHub 账号的邮箱，方便提交记录的识别。
+**Note**: It's recommended to use your GitHub account's email here for easy identification of commit records.
 
-## 第二步：生成 SSH 密钥
+## Step 2: Generate SSH Keys
 
-为了能够通过 SSH 方式与 GitHub 通信，需要生成 SSH 密钥对。
+To communicate with GitHub via SSH, you need to generate an SSH key pair.
 
-### 生成密钥
+### Generate Keys
 
 ```bash
 ssh-keygen -t ed25519 -C "your-email@example.com" -f ~/.ssh/id_ed25519 -N ""
 ```
 
-**参数说明**：
-- `-t ed25519`：使用 ED25519 算法（比 RSA 更安全、更快）
-- `-C "email"`：添加注释（通常是邮箱）
-- `-f ~/.ssh/id_ed25519`：指定密钥文件路径
-- `-N ""`：设置空密码（免密登录）
+**Parameter Explanation**:
+- `-t ed25519`: Use ED25519 algorithm (more secure and faster than RSA)
+- `-C "email"`: Add a comment (usually email)
+- `-f ~/.ssh/id_ed25519`: Specify the key file path
+- `-N ""`: Set empty password (passwordless login)
 
-### 添加密钥到 SSH 代理
+### Add Key to SSH Agent
 
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-### 添加公钥到 GitHub
+### Add Public Key to GitHub
 
-1. 复制公钥内容：
+1. Copy the public key content:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-你会看到类似这样的内容：
+You'll see something like this:
 
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIzKJ44IjgfNwkZ/p8z/2+Q1G2GWTLJst1oYPpJW6FQc your-email@example.com
 ```
 
-2. 在 GitHub 上添加公钥：
-   - 打开 GitHub → Settings → SSH and GPG keys
-   - 点击 "New SSH key"
-   - Title 填写设备名称（如 "My Laptop"）
-   - Key 粘贴上面的公钥内容
-   - 点击 "Add SSH key"
+2. Add the public key on GitHub:
+   - Open GitHub → Settings → SSH and GPG keys
+   - Click "New SSH key"
+   - Title: Enter device name (e.g., "My Laptop")
+   - Key: Paste the public key content above
+   - Click "Add SSH key"
 
-### 测试连接
+### Test Connection
 
 ```bash
 ssh -T git@github.com
 ```
 
-如果看到类似 `Hi username! You've successfully authenticated` 的提示，说明配置成功！
+If you see a prompt like `Hi username! You've successfully authenticated`, the configuration is successful!
 
-## 第三步：创建 GitHub 仓库
+## Step 3: Create GitHub Repository
 
-1. 在 GitHub 上创建新仓库
-2. 仓库名格式：`username.github.io`（username 是你的 GitHub 用户名）
-3. 仓库选择 Public（公开）
-4. 建议勾选 "Add a README file"
+1. Create a new repository on GitHub
+2. Repository name format: `username.github.io` (username is your GitHub username)
+3. Choose Public for the repository
+4. Recommended to check "Add a README file"
 
-## 第四步：克隆仓库
+## Step 4: Clone Repository
 
 ```bash
 git clone git@github.com:username/username.github.io.git
 cd username.github.io
 ```
 
-## 第五步：安装 Jekyll
+## Step 5: Install Jekyll
 
-Jekyll 是基于 Ruby 的，需要先安装 Ruby 相关工具。
+Jekyll is based on Ruby, so you need to install Ruby-related tools first.
 
-### 安装 Ruby 和构建工具
+### Install Ruby and Build Tools
 
-**Ubuntu/Debian**：
+**Ubuntu/Debian**:
 ```bash
 sudo apt update
 sudo apt install -y ruby ruby-dev build-essential zlib1g-dev
 ```
 
-**macOS**（使用 Homebrew）：
+**macOS** (using Homebrew):
 ```bash
 brew install ruby
 ```
 
-**Windows**：推荐使用 [RubyInstaller](https://rubyinstaller.org/)
+**Windows**: Recommended to use [RubyInstaller](https://rubyinstaller.org/)
 
-### 安装 Jekyll 和 Bundler
+### Install Jekyll and Bundler
 
 ```bash
 gem install jekyll bundler
 ```
 
-如果遇到权限问题，可以使用 `--user-install` 参数：
+If you encounter permission issues, you can use the `--user-install` parameter:
 
 ```bash
 gem install --user-install jekyll bundler
 ```
 
-然后将 gem 的 bin 目录添加到 PATH（根据系统可能不同）：
+Then add the gem's bin directory to PATH (may vary by system):
 
 ```bash
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 ```
 
-验证安装：
+Verify installation:
 
 ```bash
 jekyll --version
 ```
 
-如果显示版本号（如 `jekyll 4.4.1`），说明安装成功。
+If a version number is displayed (e.g., `jekyll 4.4.1`), the installation is successful.
 
-## 第六步：初始化 Jekyll 博客
+## Step 6: Initialize Jekyll Blog
 
-在仓库目录下运行：
+Run in the repository directory:
 
 ```bash
 jekyll new . --force
 ```
 
-**参数说明**：
-- `.`：在当前目录初始化（而不是创建子目录）
-- `--force`：强制覆盖现有文件（如果目录不为空）
+**Parameter Explanation**:
+- `.`: Initialize in the current directory (rather than creating a subdirectory)
+- `--force`: Force overwrite existing files (if directory is not empty)
 
-Jekyll 会自动生成以下文件结构：
+Jekyll will automatically generate the following file structure:
 
 ```
 .
-├── _config.yml       # 站点配置文件
-├── _posts/           # 文章目录
+├── _config.yml       # Site configuration file
+├── _posts/           # Posts directory
 │   └── 2026-04-05-welcome-to-jekyll.markdown
-├── about.markdown    # 关于页面
-├── index.markdown    # 首页
-├── 404.html          # 404 页面
-├── Gemfile           # 依赖管理
-└── Gemfile.lock      # 依赖版本锁定
+├── about.markdown    # About page
+├── index.markdown    # Homepage
+├── 404.html          # 404 page
+├── Gemfile           # Dependency management
+└── Gemfile.lock      # Dependency version lock
 ```
 
-## 第七步：配置博客信息
+## Step 7: Configure Blog Information
 
-编辑 `_config.yml` 文件，修改基本信息：
+Edit the `_config.yml` file and modify basic information:
 
 ```yaml
-title: 你的博客标题
+title: Your Blog Title
 email: your-email@example.com
 description: >-
-  你的博客描述，会显示在搜索引擎结果中
-baseurl: ""  # 站点的子路径（如果有）
-url: "https://username.github.io"  # 你的博客地址
-twitter_username:  # Twitter 用户名（可选）
-github_username: username  # GitHub 用户名
+  Your blog description, which will appear in search engine results
+baseurl: ""  # Subpath of your site (if any)
+url: "https://username.github.io"  # Your blog address
+twitter_username:  # Twitter username (optional)
+github_username: username  # GitHub username
 ```
 
-**重要**：`url` 字段要填写正确的 GitHub Pages 地址，格式为 `https://username.github.io`。
+**Important**: The `url` field should be filled with the correct GitHub Pages address, in the format `https://username.github.io`.
 
-## 第八步：提交并推送到 GitHub
+## Step 8: Commit and Push to GitHub
 
 ```bash
 git add -A
@@ -209,143 +209,143 @@ git commit -m "Initial commit: Jekyll blog setup"
 git push -u origin main
 ```
 
-**注意**：如果你的默认分支是 `master`，将 `main` 替换为 `master`。
+**Note**: If your default branch is `master`, replace `main` with `master`.
 
-## 第九步：启用 GitHub Pages
+## Step 9: Enable GitHub Pages
 
-1. 打开 GitHub 仓库页面
-2. 点击 **Settings** 标签
-3. 左侧菜单找到 **Pages**
-4. 在 **Build and deployment** 部分：
+1. Open the GitHub repository page
+2. Click the **Settings** tab
+3. Find **Pages** in the left menu
+4. In the **Build and deployment** section:
 
-   **方案一：使用 GitHub Actions（推荐）**
-   - Source 选择 **GitHub Actions**
-   - GitHub 会自动创建工作流文件
+   **Option 1: Use GitHub Actions (Recommended)**
+   - Source select **GitHub Actions**
+   - GitHub will automatically create workflow files
 
-   **方案二：从分支部署**
-   - Source 选择 **Deploy from a branch**
-   - Branch 选择 **main**（或 **master**）
-   - Folder 选择 **/ (root)**
-   - 点击 Save
+   **Option 2: Deploy from Branch**
+   - Source select **Deploy from a branch**
+   - Branch select **main** (or **master**)
+   - Folder select **/ (root)**
+   - Click Save
 
-5. 等待 1-2 分钟，GitHub 会自动构建你的博客
+5. Wait 1-2 minutes, GitHub will automatically build your blog
 
-构建完成后，GitHub Pages 页面会显示你的博客地址：
+After the build is complete, the GitHub Pages page will display your blog address:
 
 ```
 https://username.github.io
 ```
 
-## 第十步：写你的第一篇文章
+## Step 10: Write Your First Article
 
-### 文章格式
+### Article Format
 
-在 `_posts/` 目录下创建新文件，文件名格式：
+Create a new file in the `_posts/` directory with the filename format:
 
 ```
-YYYY-MM-DD-标题.markdown
+YYYY-MM-DD-title.markdown
 ```
 
-例如：`2026-04-05-my-first-post.markdown`
+For example: `2026-04-05-my-first-post.markdown`
 
-### 文章结构
+### Article Structure
 
 ```markdown
 ---
 layout: post
-title: "文章标题"
+title: "Article Title"
 date: 2026-04-05 12:00:00 +0800
-categories: 分类
-tags: [标签1, 标签2, 标签3]
+categories: Category
+tags: [tag1, tag2, tag3]
 ---
 
-文章内容，使用 Markdown 语法编写...
+Article content, written in Markdown syntax...
 
-## 二级标题
+## Level 2 Heading
 
-### 三级标题
+### Level 3 Heading
 
-- 列表项 1
-- 列表项 2
+- List item 1
+- List item 2
 
-**粗体** 和 *斜体*
+**Bold** and *Italic*
 
-[链接文字](https://example.com)
+[Link Text](https://example.com)
 ```
 
-### 分类和标签
+### Categories and Tags
 
-- **categories（分类）**：可以有层级结构，如 `categories: [技术, 教程]`
-- **tags（标签）**：扁平结构，如 `tags: [jekyll, 博客, markdown]`
+- **categories**: Can have hierarchical structure, e.g., `categories: [Technology, Tutorial]`
+- **tags**: Flat structure, e.g., `tags: [jekyll, blog, markdown]`
 
-## 本地预览（可选）
+## Local Preview (Optional)
 
-在推送之前，你可以本地预览博客效果：
+Before pushing, you can preview the blog locally:
 
 ```bash
 cd username.github.io
 bundle exec jekyll serve
 ```
 
-然后在浏览器中访问 `http://localhost:4000`
+Then visit `http://localhost:4000` in your browser.
 
-**注意**：如果使用 `--user-install` 安装的 Jekyll，需要确保 gem 的 bin 目录在 PATH 中。
+**Note**: If Jekyll was installed with `--user-install`, ensure the gem's bin directory is in your PATH.
 
-## 常见问题
+## Common Issues
 
-### 1. 推送后博客没有更新
+### 1. Blog Not Updating After Push
 
-GitHub Pages 构建需要 1-2 分钟时间，耐心等待。也可以在仓库的 **Actions** 标签查看构建状态。
+GitHub Pages build takes 1-2 minutes, be patient. You can also check the build status in the repository's **Actions** tab.
 
-### 2. 样式显示异常
+### 2. Style Display Abnormalities
 
-检查 `_config.yml` 中的 `url` 字段是否正确，应该是 `https://username.github.io`（不要加末尾的斜杠）。
+Check if the `url` field in `_config.yml` is correct, it should be `https://username.github.io` (don't add a trailing slash).
 
-### 3. 文章没有显示
+### 3. Article Not Displaying
 
-确保文件名格式正确：`YYYY-MM-DD-标题.markdown`，日期必须是有效的。
+Ensure the filename format is correct: `YYYY-MM-DD-title.markdown`, and the date must be valid.
 
-### 4. 本地预览失败
+### 4. Local Preview Failed
 
-尝试运行：
+Try running:
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-## 进阶主题
+## Advanced Topics
 
-### 更换主题
+### Change Theme
 
-Jekyll 有很多现成的主题，可以查看 [Jekyll Themes](https://jekyllthemes.io/) 或者 GitHub 上的 [Awesome Jekyll Themes](https://github.com/planetjekyll/awesome-jekyll-themes)。
+Jekyll has many ready-made themes. You can check [Jekyll Themes](https://jekyllthemes.io/) or [Awesome Jekyll Themes](https://github.com/planetjekyll/awesome-jekyll-themes) on GitHub.
 
-### 自定义域名
+### Custom Domain
 
-1. 在 `_config.yml` 中设置 `url` 和 `baseurl`
-2. 在仓库 Settings → Pages 中添加自定义域名
-3. 配置 DNS 解析（CNAME 记录指向 `username.github.io`）
+1. Set `url` and `baseurl` in `_config.yml`
+2. Add custom domain in repository Settings → Pages
+3. Configure DNS resolution (CNAME record pointing to `username.github.io`)
 
-### 添加评论功能
+### Add Comment Functionality
 
-可以使用 [Giscus](https://giscus.app/)（基于 GitHub Discussions）或 [Disqus](https://disqus.com/) 等评论系统。
+You can use [Giscus](https://giscus.app/) (based on GitHub Discussions) or [Disqus](https://disqus.com/) and other comment systems.
 
-### 添加统计功能
+### Add Analytics
 
-使用 Google Analytics 或其他网站统计工具，在 `_includes/head.html` 中添加统计代码。
+Use Google Analytics or other website analytics tools, add tracking code in `_includes/head.html`.
 
-## 总结
+## Summary
 
-使用 GitHub Pages + Jekyll 搭建博客是一个不错的选择，尤其是对于技术博客来说。整个过程不需要购买服务器，不需要配置复杂的后端，专注于内容创作即可。
+Using GitHub Pages + Jekyll to build a blog is a great choice, especially for technical blogs. The entire process doesn't require purchasing servers or configuring complex backends, just focus on content creation.
 
-如果你也想搭建自己的博客，希望这篇文章能帮到你。有任何问题，欢迎在评论区交流！
+If you also want to build your own blog, I hope this article helps you. If you have any questions, feel free to discuss in the comments!
 
-## 参考资料
+## References
 
-- [GitHub Pages 官方文档](https://docs.github.com/zh/pages)
-- [Jekyll 官方文档](https://jekyllrb.com/docs/)
-- [GitHub Pages 使用 Jekyll 创建网站](https://docs.github.com/zh/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
+- [GitHub Pages Official Documentation](https://docs.github.com/en/pages)
+- [Jekyll Official Documentation](https://jekyllrb.com/docs/)
+- [Creating a GitHub Pages Site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 
 ---
 
-**更新时间**：2026-04-05
+**Updated**: 2026-04-05

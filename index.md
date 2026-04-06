@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "首页"
+title: "Home"
 permalink: /
 author_profile: true
 header:
@@ -8,11 +8,11 @@ header:
   overlay_image: /assets/images/banner-no-text.svg
 ---
 
-欢迎来到我的个人博客！👋
+Welcome to my personal blog! 👋
 
-这里是我在技术学习和生活中的记录空间。
+This is my space for recording my technology learning and life.
 
-## 📝 最新文章
+## 📝 Latest Posts
 
 {% for post in site.posts limit:5 %}
   {% include archive-single.html %}
@@ -20,4 +20,4 @@ header:
 
 ---
 
-[查看所有文章]({{ site.baseurl }}/posts/)
+[View All Posts]({{ site.baseurl }}/posts/)

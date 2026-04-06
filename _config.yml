@@ -1,8 +1,8 @@
 # Site Settings
-title: Charles 的博客
+title: Charles's Blog
 email: quhaibing206@163.com
 description: >- # this means to ignore newlines until "baseurl:"
-  欢迎来到我的个人博客！这里分享我的技术笔记和生活感悟。
+  Welcome to my personal blog! Sharing my tech notes and life insights here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://charles-lie206.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
@@ -17,9 +17,9 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Author
 author:
   name: Charles
-  avatar: /assets/images/bio-photo.svg # 头像图片路径，可以后续替换
-  bio: "技术博客 | 记录学习与成长"
-  location: "中国"
+  avatar: /assets/images/bio-photo.svg # Avatar image path, can be replaced later
+  bio: "Tech Blog | Recording Learning and Growth"
+  location: "China"
   email: quhaibing206@163.com
   links:
     - label: "GitHub"

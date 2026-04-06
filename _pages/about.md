@@ -1,35 +1,35 @@
 ---
-title: "关于我"
+title: "About Me"
 permalink: /about/
 layout: single
 author_profile: true
 ---
 
-你好！我是 Charles 👋
+Hello! I'm Charles 👋
 
-欢迎来到我的个人博客！
+Welcome to my personal blog!
 
-## 关于这个博客
+## About This Blog
 
-这里是我在技术学习和生活中的记录空间。我会在这里分享：
+This is my space for recording my technology learning and life insights. I share:
 
-- 技术学习笔记
-- 项目开发经验
-- 编程心得体会
-- 生活随笔
+- Technology learning notes
+- Project development experience
+- Programming insights
+- Life essays
 
-## 技术栈
+## Tech Stack
 
-- 前端：HTML, CSS, JavaScript, Vue.js
-- 后端：Node.js, Python
-- 工具：Git, Docker, Linux
-- 博客：Jekyll + GitHub Pages
+- Frontend: HTML, CSS, JavaScript, Vue.js
+- Backend: Node.js, Python
+- Tools: Git, Docker, Linux
+- Blog: Jekyll + GitHub Pages
 
-## 联系方式
+## Contact
 
 - Email: [quhaibing206@163.com](mailto:quhaibing206@163.com)
 - GitHub: [Charles-Lie206](https://github.com/Charles-Lie206)
 
 ---
 
-感谢你的访问！
+Thanks for visiting!
