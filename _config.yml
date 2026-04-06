@@ -14,19 +14,6 @@ theme: minimal-mistakes-jekyll
 # Minimal Mistakes specific settings
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
-# Navigation
-navigation:
-  - title: "Home"
-    url: /
-  - title: "About"
-    url: /about/
-  - title: "Posts"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-
 # Site Author
 author:
   name: Charles
