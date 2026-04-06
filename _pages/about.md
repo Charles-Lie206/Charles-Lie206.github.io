@@ -3,6 +3,9 @@ title: "About Me"
 permalink: /about/
 layout: single
 author_profile: true
+header:
+  overlay_color: "#4a90e2"
+  overlay_image: /assets/images/banner-no-text.svg
 ---
 
 Hello! I'm Charles Lie 👋
