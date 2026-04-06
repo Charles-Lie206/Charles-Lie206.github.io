@@ -8,10 +8,10 @@ header:
   overlay_image: /assets/images/banner-no-text.svg
 ---
 
-{% assign posts_by_tag = site.tags | sort %}
-{% for tag in posts_by_tag %}
-  <h2 id="{{ tag[0] | slugify }}" class="archive__subtitle">{{ tag[0] }}</h2>
+{% for tag in site.tags %}
+  {% assign tag_name = tag[0] %}
+  <h3 id="{{ tag_name | slugify }}" class="archive__subtitle">{{ tag_name }}</h3>
   {% for post in tag[1] %}
-    {% include archive-single.html %}
+    {% include archive-single.html type="grid" %}
   {% endfor %}
 {% endfor %}
