@@ -10,7 +10,7 @@ header:
 
 Welcome to my personal blog! 👋
 
-Hi, I'm **Charles** — a tech enthusiast sharing knowledge and insights about programming, networking, and system administration. This is my space for documenting my learning journey and helping others along the way.
+Hi, I'm **Charles Lie** — a tech enthusiast sharing knowledge and insights about programming, networking, and system administration. This is my space for documenting my learning journey and helping others along the way.
 
 ## 📝 Latest Posts
 

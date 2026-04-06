@@ -5,7 +5,7 @@ layout: single
 author_profile: true
 ---
 
-Hello! I'm Charles 👋
+Hello! I'm Charles Lie 👋
 
 Welcome to my personal blog!
 
