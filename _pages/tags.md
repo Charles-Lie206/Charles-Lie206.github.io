@@ -12,6 +12,6 @@ header:
   {% assign tag_name = tag[0] %}
   <h3 id="{{ tag_name | slugify }}" class="archive__subtitle">{{ tag_name }}</h3>
   {% for post in tag[1] %}
-    {% include archive-single.html type="grid" %}
+    {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
