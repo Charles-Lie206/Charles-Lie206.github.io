@@ -8,10 +8,15 @@ header:
   overlay_image: /assets/images/banner-no-text.svg
 ---
 
-{% assign posts_by_category = site.posts | group_by_exp: "post", "post.categories | sort: natural" %}
-{% for category in posts_by_category %}
-  <h2 id="{{ category.name | slugify }}" class="archive__subtitle">{{ category.name }}</h2>
-  {% for post in category.items %}
-    {% include archive-single.html %}
-  {% endfor %}
+{% assign categories_max = 5 %}
+{% for category in site.categories %}
+  {% if category[1].size > 0 %}
+    <h2 id="{{ category[0] | slugify }}" class="archive__subtitle">{{ category[0] }}</h2>
+    {% for post in category[1] limit: categories_max %}
+      {% include archive-single.html %}
+    {% endfor %}
+    {% if category[1].size > categories_max %}
+      <p><a href="{{ site.baseurl }}{{ category[0] }}">View all {{ category[1].size }} posts</a></p>
+    {% endif %}
+  {% endif %}
 {% endfor %}
